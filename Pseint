@@ -1,4 +1,11 @@
-	Algoritmo  Farmacia 
+##Readme##
+##
+El pseudocodigo consiste en una farmacia que brinda un inicio de seccion, un ingreso de productos y un almacenamiento de productos una factura y un sistema identico a un sitio weeb de una farmacia real 
+en ella el funcionamiento de seleccion de productos, valor monetario, factura y posteriormente el inicio de seccion en el cual podemos mostrar productos de inventario y tambien podemos ingresar productos 
+y que sean almacenados en los valores y las casillas correspondientes a el producto o almacenarlo como nuevo en un apartado especial 
+##
+
+Algoritmo  Farmacia 
 	Definir metodo_de_pago como cadena 
 	Definir total como real 
 	Definir Op1, Op2, Op3, Op4, Op5, Op6, Op7, Op8, Op9, Op10,Op11,Op12 Como Real

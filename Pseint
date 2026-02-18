@@ -1,0 +1,778 @@
+	Algoritmo  Farmacia 
+	Definir metodo_de_pago como cadena 
+	Definir total como real 
+	Definir Op1, Op2, Op3, Op4, Op5, Op6, Op7, Op8, Op9, Op10,Op11,Op12 Como Real
+	Op1<-0; Op2<-0; Op3<-0; Op4<-0; Op5<-0; Op6<-0; Op7<-0; Op8<-0;Op9<-0; Op10<-0; Op11<-0; Op12<-0;
+	Definir Prod1, Prod2, Prod3, Prod4, Prod5, Prod6, Prod7, Prod8, Prod9, Prod10 como cadena	
+	Definir nuevo_producto como cadena
+	//Inventariado
+	Definir nombresinv, fechasinv Como Cadena
+	Definir preciosinv Como Real
+	Definir pos Como Entero
+	Dimensionar nombresinv[11] 
+	Dimensionar fechasinv[11]
+	Dimensionar preciosinv[11]
+	//Lectura de productos
+	Definir Op_admin Como Entero
+	Definir tipodeop Como Entero
+	Definir selecc Como Entero
+	Definir contador Como Entero
+	Definir i Como Entero
+	Dimensionar nombresinve[11] 
+	Dimensionar fechasinve[11]
+	Dimensionar preciosinve[11]
+	Dimensionar tipoinve[11]
+	Dimensionar cantidadinve[11]
+	pos <- 0;
+	contleches <- 0;
+	contpasti <- 0;
+	contbucal <- 0;
+	contskin <- 0;
+	contsueros <- 0;
+	contprimeros <- 0;
+	contcremas <- 0;
+	contsolar <- 0;
+	contvitaminas <- 0;
+	conthigiene <- 0;
+	
+	// definicion de usuario
+	Definir usuario Como Cadena
+	Definir  clave Como Entero 
+	Definir acceso Como Logico
+	
+	// pagos o sub op o op
+	Definir con_cuanto_pagara Como real
+	Definir OP, SubOp como real 
+	Definir Cambio Como Real
+	Definir ToF Como Real
+	Definir Tarjeta, Efectivo como real  
+	
+	//Productos Ingresar
+	Definir name como cadena //nombre del producto a ingresar
+	Definir cadu como cadena //caducidad
+	Definir pre como real// precio de cuanto va a valer el producto
+	Definir produc como cadena //producto
+	Definir cant como cadena //cantidad
+
+	//Asignar Fechas de vencimiento 
+	Definir mescadu Como Entero
+	Definir añocadu como Entero 
+	
+	
+	
+    Repetir
+        Limpiar Pantalla
+        Escribir "   1. Leches, formulas y suplementos " //Mateo
+        Escribir "   2. Pastillas " // Lili
+        Escribir "   3. salud bucal " // Mateo
+        Escribir "   4. Skincare " // Lili
+        Escribir "   5. Sueros " // Mateo
+		Escribir "   6. Primeros auxilios "// Medrano
+		Escribir "   7. Cremas  "//Medrano
+		Escribir "   8. Protectores solares " // Medrano 
+		Escribir "   9. Vitaminas " // Criss
+		Escribir "   10. Productos higienicos " // Criss
+		Escribir "   11. FIN DE PEDIDO  "
+		Escribir "   12. Inicie sesion " 
+        Escribir "Elija una opción (1-12): "
+        Leer OP
+		
+		Segun OP Hacer
+			1:	
+				Escribir " Leches, formulas y suplementos : "
+				Escribir "Cual es su eleccion ??"
+				Escribir " 1. Ascenda Sabor Vainilla Lata X 400 Gramos ($23.72)"
+				Escribir " 2. Bebelac Gold #3 Lata X 900 Gramos ($20.82)"
+				Escribir " 3.  Ensure Advance Fresa-Banana Lata X 850 Gramos ($54.36) "
+				Escribir " 4.  Enfamil Sin Lactosa Premium Lata X 900 Gramos ($43.05) "
+				Escribir " 5.  Ensure Advance Sabor Chocolate Lata X 400 Gramos ($30.98 ) "
+				Escribir " 6.Ensure Ng Vainilla  Lata 400 Gramos ($23.68) "
+				Escribir " 7. Ensure Plus Vainilla Bote X 220Ml ($5.33) "
+				Escribir " 8.Ensure Sabor Fresa Lata X 850 Gramos ($45.61) "
+				Escribir " 9. Enterex Dbt Fresa Bote X 8 Onzas ($ 5.52) "
+				Escribir " 10. Enterex Total Sabor Vainilla Lata X 400 Gramos ($23.49) "
+				Escribir " 0. Regresar"
+				Leer SubOP
+				Si (SubOp <0 ) o (SubOP  >10) Entonces
+					Escribir "Numero de pedido invalido ingrese denuevo "
+				Sino 
+				  	Segun SubOP Hacer
+						1: Op1 <- 23.72
+							descuento <- 0.10
+						    Prod1 <- "Ascenda Sabor Vainilla Lata X 400 Gramos"
+						2: Op1 <- 20.82
+							Prod2 <- "Bebelac Gold #3 Lata X 900 Gramos"
+						3: Op1 <- 54.36
+							Prod3 <- "Ensure Advance Fresa-Banana Lata X 850 Gramos"
+						4: Op1 <- 43.05
+							Prod4 <- "Enfamil Sin Lactosa Premium Lata X 900 Gramos"
+						5: Op1 <- 30.98
+							Prod5 <- "Ensure Advance Sabor Chocolate Lata X 400 Gramos"
+						6: Op1 <- 23.68
+							Prod6 <- "Ensure Ng Vainilla  Lata 400 Gramos"
+						7: Op1 <- 5.33
+							Prod7 <- "Ensure Plus Vainilla Bote X 220Ml"
+						8: Op1 <- 45.61
+							Prod8 <- "Ensure Plus Vainilla Bote X 220Ml"
+						9: Op1 <- 5.52
+							Prod9 <- "Enterex Dbt Fresa Bote X 8 Onzas"
+						10: Op1 <- 23.49 
+							Prod10 <- "Enterex Total Sabor Vainilla Lata X 400 Gramos"
+						De Otro Modo: Op1 <- 0
+					FinSegun
+				FinSi
+            2:
+				Escribir "Pastillas:"
+				Escribir "Cual es su eleccion ??"
+                Escribir " 1 Acetaminofen Forte Mk X 1 Tableta ($2.99)"
+                Escribir " 2 Loratadina Ls 10Mg X 10 Tabletas ($5.00)"
+                Escribir " 3 Alercet 10Mg X 10 Tabletas ($5.50)"
+				escribir " 4 Acetaminofen Mk 500Mg X 1 ($10.10)" 
+				Escribir " 5 Viro-Grip A.M. X 24 Sobres De 2 Gelcaps ($11.22)"
+				escribir " 6 Winex X 20 Tabletas ($8.26)"
+				Escribir " 7 Tramal Gotas Orales 10Mg Frasco X 10Ml ($9.57)"
+				Escribir " 8 Colipax Nf X 100 Comprimidos ($25.23)"
+				Escribir " 9 Loratadina Ls 10Mg X 10 Tabletas ($5.20)"
+				Escribir " 10 Tialgin 1 Gr X 20 Comprimidos ($7.13)"
+				Escribir " 0. Regresar"
+				Leer SubOP
+				Si (SubOp <0 ) o (SubOP  >3) Entonces
+					Escribir "Numero de pedido invalido ingrese denuevo "
+				Sino 
+					Segun SubOP Hacer
+						1: Op2 <- 2.99
+							descuento <- 0.10
+							Prod1 <- "Acetaminofen Forte Mk X 1 Tableta Gramos"
+						2: Op2 <- 5.00
+							Prod2 <- "Loratadina Ls 10Mg X 10 Tabletas"
+						3: Op2 <- 5.50
+							Prod3 <- "Alercet 10Mg X 10 Tabletas"
+						4: Op2 <- 10.10
+							Prod4 <- "Acetaminofen Mk 500Mg X 1"
+						5: Op2 <- 11.22
+							Prod5 <- "Viro-Grip A.M. X 24 Sobres De 2 Gelcaps"				
+						6: Op2 <- 8.26
+							Prod6 <- "Winex X 20 Tabletas"	
+						7: Op2 <- 9.57
+							Prod7 <- "Tramal Gotas Orales 10Mg Frasco X 10Ml"	
+						8: Op2 <- 25.23
+							Prod8 <- "Colipax Nf X 100 Comprimidos"
+						9: Op2 <- 5.20
+							Prod9 <- "Loratadina Ls 10Mg X 10 Tabletas"	
+						10: Op2 <- 7.13
+							Prod10 <- "Tialgin 1 Gr X 20 Comprimidos"
+						De Otro Modo: Op2 <- 0
+					FinSegun
+				FinSi
+				
+            3:
+				Escribir "Salud bucal :"
+				Escribir "Cual es su eleccion ??"
+                Escribir " 1. Cepillo Kin Interdental Ultramicro 0.6Mm ($14.76)"
+                Escribir " 2. Fluor Kin Enjuague Bucal Infantil Frasco X 500Ml ($13.92)"
+                Escribir " 3. Fluor Kin Infantil Pasta Tubo X 75+25Ml ($11.31)"
+				Escribir " 4. Cariax Gingival Enjuague 500Ml + 100Ml ($18.60) "
+				Escribir " 5. Cepillo Dental Kin Extra-Suave ( $3.98) "
+				Escribir " 6. Cepillo Kin Interdental Micro 0.9Mm ($6.14) "
+				Escribir " 7. Cepillo Kin Interdental Ultramicro 0.6Mm ($6.14) "
+				Escribir " 8. Oddent Fluor Infantil Gel 50 Ml ($9.84) "
+				Escribir " 9. Seda Dental Fkd Mentolada Con Cera X 50M ($3.81)"
+				Escribir " 10. Perio Kin Gel Tubo X 30Ml($15.45) "
+				Escribir " 0. Regresar"
+				Leer SubOP
+				Si (SubOp <0 ) o (SubOP  >10) Entonces
+					Escribir "Numero de pedido invalido ingrese denuevo "
+				Sino 
+					Segun SubOP Hacer
+						1: Op3 <- 14.76	
+							descuento <- 0.10
+							Prod1 <- "Cepillo Kin Interdental Ultramicro 0.6Mm"
+						2: Op3 <- 13.92	
+							Prod2 <- "Fluor Kin Enjuague Bucal Infantil Frasco X 500Ml"	
+						3: Op3 <- 11.31
+							Prod3 <- "Fluor Kin Infantil Pasta Tubo X 75+25Ml"	
+						4: Op3 <- 18.60
+							Prod4 <- "Cariax Gingival Enjuague 500Ml + 100Ml"
+						5: Op3 <- 3.98	
+							Prod5 <- "Cepillo Dental Kin Extra-Suave"	
+						6: Op3 <- 6.14
+							Prod6 <- "Cepillo Kin Interdental Micro 0.9Mm"	
+						7: Op3 <- 6.14
+							Prod7 <- "Cepillo Kin Interdental Ultramicro 0.6Mm"	
+						8: Op3 <- 9.84
+							Prod8 <- "Oddent Fluor Infantil Gel 50 Ml"	
+						9: Op3 <- 3.81
+							Prod9 <- "Seda Dental Fkd Mentolada Con Cera X 50M"	
+						10: Op3 <- 15.45
+							Prod10 <- "Perio Kin Gel Tubo X 30Ml"
+						De Otro Modo: Op3 <- 0
+					FinSegun
+				FinSi
+				
+            4:
+				Escribir "Skincare "
+				Escribir "Cual es su eleccion ??"
+                Escribir " 1 Mineral 89 Booster De Uso Diario 30Ml ($34.50)"
+                Escribir " 2 Pure Vitamin C10 30Ml La Roche Posay ($68.00)"
+                Escribir " 3 Salises Gel Hidratante 50Ml($42.00)"
+				Escribir " 4 Serum Revitalift Ácido Hialurónico Sérum 30ml($25.00)"
+				Escribir " 5 Salises Gel Hidratante 50Ml($42.00)"
+				escribir " 6 Clinique Gel Humectante Dramatically Different ($41.00)"
+				escribir " 7 Hyaluronic Acid 2% + B5 Hydrating Serum with Ceramides ($9.90)"
+				Escribir " 8 Multi-Peptide + Hyaluronic Acid Serum for Firmness and Elasticity ($33.80)"
+				escribir " 9 Glazing Milk Ceramide Facial Essence ($32.00)"
+				escribir " 10 Glycolic Acid 7% Exfoliating and Brightening Daily Toner ($13.50)"
+				Escribir " 0. Regresar"
+				Leer SubOP
+				Si (SubOp <0 ) o (SubOP  >3) Entonces
+					Escribir "Numero de pedido invalido ingrese denuevo "
+				Sino 
+					Segun SubOP Hacer
+						1: Op4 <- 34.50	
+							descuento <- 0.10
+							Prod1 <- "Mineral 89 Booster De Uso Diario 30Ml"
+						2: Op4 <- 68.00
+							Prod2 <- "Pure Vitamin C10 30Ml La Roche Posay"
+						3: Op4 <- 42.00
+							Prod3 <- "Salises Gel Hidratante 50Ml"	
+						4: Op4 <- 25.00
+							Prod4 <- "Serum Revitalift Ácido Hialurónico Sérum 30ml"	
+						5: Op4 <- 15.00
+							Prod5 <- "Serum Express Aclarante Anti Manchas"
+						6: Op4 <- 41.00
+							Prod6 <- "Clinique Gel Humectante Dramatically Different"	
+						7: Op4 <- 9.90
+							Prod7 <- "Hyaluronic Acid 2% + B5 Hydrating Serum with Ceramides"	
+						8: Op4 <- 33.80
+							Prod8 <- "Multi-Peptide + Hyaluronic Acid Serum for Firmness and Elasticity"	
+						9: Op4 <- 32.00
+							Prod9 <- "Glazing Milk Ceramide Facial Essence"	
+						10: Op4 <- 13.50
+							Prod10 <- "Glycolic Acid 7% Exfoliating and Brightening Daily Toner"
+							
+						De Otro Modo: Op4 <- 0
+					FinSegun
+				FinSi
+				
+			5:	
+				Escribir " Sueros "
+				Escribir "Cual es su eleccion ??"
+                Escribir " 1. Electrolit Suero Coco Frasco 625 Ml ($2.40)"
+                Escribir " 2. Electrolit Suero Fresa Frasco 625 Ml  ($2.30)"
+                Escribir " 3. Electrolit Suero Manzana Frasco 625 Ml ($2.30)"
+				Escribir " 4. Electrolit Suero Sabor Jamaica 625Ml ($2.13) "
+				Escribir " 5. Electrolit Suero Pediatrico Sabor Manzana X 500 Ml ($2.30) "
+				Escribir " 6. Electrolit Suero Sabor Mora Azul 625Ml ($2.30) "
+				Escribir " 7. Electrolit Suero Sabor Naranja-Mandarina X 625 Ml ($2.30 ) "
+				Escribir " 8. Pedialyte Suero Coco 60 Meq Frasco X 500Ml ($3.15 ) "
+				Escribir " 9. Pedialyte Suero Fos Coco 30 Meq Two Pack X 500Ml ($5.40) "
+				Escribir " 10. Pedialyte Suero Fresa 60 Meq Frasco X 500Ml ($3.15) "
+				Escribir " 0. Regresar"
+				Leer SubOP
+				Si (SubOp <0 ) o (SubOP  >10) Entonces
+					Escribir "Numero de pedido invalido ingrese denuevo "
+				Sino 
+					Segun SubOP Hacer
+						1: Op5 <- 2.40
+							descuento <- 0.10
+							Prod1 <- "Electrolit Suero Coco Frasco 625 Ml"	
+						2: Op5 <- 2.30
+							Prod2 <- "Electrolit Suero Fresa Frasco 625 Ml"	
+						3: Op5 <- 2.30
+							Prod3 <- "Electrolit Suero Manzana Frasco 625 Ml"	
+						4: Op5 <- 2.13
+							Prod4 <- "Electrolit Suero Sabor Jamaica 625Ml"	
+						5: Op5 <- 2.30
+							Prod5 <- "Electrolit Suero Pediatrico Sabor Manzana X 500 Ml"	
+						6: Op5 <- 2.30
+							Prod6 <- "Electrolit Suero Sabor Mora Azul 625Ml"	
+						7: Op5 <- 2.30
+							Prod7 <- "Electrolit Suero Sabor Naranja-Mandarina X 625 Ml"	
+						8: Op5 <- 3.15
+							Prod8 <- "Pedialyte Suero Coco 60 Meq Frasco X 500Ml"	
+						9: Op5 <- 5.40
+							Prod9 <- "Pedialyte Suero Fos Coco 30 Meq Two Pack X 500Ml"	
+						10: Op5 <- 3.15
+							Prod10 <- "Pedialyte Suero Fresa 60 Meq Frasco X 500Ml"
+						De Otro Modo: Op5 <- 0
+					FinSegun
+				FinSi
+				
+			6:	
+				Escribir "Primeros auxilios"
+				Escribir "Cual es su eleccion ??"
+                Escribir " 1. Curas Cureband Venditas Adulto X 100 unidades ($2.50) "
+                Escribir " 2.  Gasa Cureband 7.5X7.5 X 24 Sobres De 2 Gasas ($4.10) "
+                Escribir " 3. Microporoso Esparadrapo 1.25Cm X 4.5M Blanco X 12 (Oferta 20%)($12.74)" //des
+				Escribir " 4. Alcohol Suizos De 90° Mediano Bote 8 Onza ($2.18) "
+				Escribir " 5. Oxigen 10 Vol. Solucion Frasco X 120Ml ($2.36) "
+				Escribir " 6. Venda Migasa Rollo 2 Pulgadas 45 Gramos ($1.42) "
+				Escribir " 7. Pomada Withfield 50 Gramos ($10.00) "
+				Escribir " 8. Algodón Suizo Sky Cotton Bolsa X 50 Gramos ($0.95) "
+				Escribir " 9. Termometro Digital Multifuncion With Beeper ($6.59) "
+				Escribir " 10. Sinocare Tensiometro Electronico ($39.95) "
+				Escribir " 0. Regresar"
+				Leer SubOP
+				Si (SubOp <0 ) o (SubOP  >10) Entonces
+					Escribir "Numero de pedido invalido ingrese denuevo "
+				Sino 
+					Segun SubOP Hacer
+						1:  Op6 <- 2.50
+							descuento <- 0.10
+							Prod1 <- "Curas Cureband Venditas Adulto X 100 unidades"
+						2:  Op6 <- 4.10
+							Prod2 <- "Gasa Cureband 7.5X7.5 X 24 Sobres De 2 Gasas"	
+						3:  Op6 <- 12.74
+							Prod3 <- "Microporoso Esparadrapo 1.25Cm X 4.5M Blanco X 12 (Oferta 20%)"	
+						4:  Op6 <- 2.18
+							Prod4 <- " Alcohol Suizos De 90° Mediano Bote 8 Onza"	
+						5:  Op6 <- 2.36
+							Prod5 <- "Oxigen 10 Vol. Solucion Frasco X 120Ml"	
+						6:  Op6 <- 1.42	
+							Prod6 <- "Venda Migasa Rollo 2 Pulgadas 45 Gramos"
+						7:  Op6 <- 10.00	
+							Prod7 <- "Pomada Withfield 50 Gramos"	
+						8:  Op6 <- 0.95
+							Prod8 <- "Algodón Suizo Sky Cotton Bolsa X 50 Gramos"	
+						9:  Op6 <- 6.59
+							Prod9 <- "Termometro Digital Multifuncion With Beeper"	
+						10: Op6 <- 39.95
+							Prod10 <- "Sinocare Tensiometro Electronico"
+						De Otro Modo: Op6 <- 0
+					FinSegun
+				FinSi
+				
+			7:	
+				Escribir "Dermocosmetica "
+				Escribir "Cual es su eleccion ??"
+                Escribir " 1. Eucerin Aquaphor Tarro 80G ($13.25) "
+                Escribir " 2. Eucerin Ph5 Piel Seca Y Sensible Gel Crema 200Ml ($28.44) "
+                Escribir " 3. Hidraderm Hyal Crema Facial 50Ml ($37.20) "
+				Escribir " 4. Doulys Hyal Serum Antiedad 15Ml ($40.83) "
+				Escribir " 5. Anthelios Uvmune 400 Fluid Oil Control Spf50+ 50Ml (Oferta 30%)($23.77) "
+				Escribir " 6. Serum Retinol Barbaria 30Ml (Oferta 15%)($12.74) "
+				Escribir " 7. Cicastim Crema Reparadora Tubo X 20Ml (Oferta 10%) ($10.50) "
+				Escribir " 8. Cerave Gel Limpiador Espumoso Normal A Grasa 236Ml (Oferta 10%) ($20.80) "
+				Escribir " 9. Eucerin Sun Fac 50+Oil Control Toque Seco Gel 50Ml (Oferta 10%) ($36.86) "
+				Escribir "10. Crema Facial Vitamina C 50Ml Babaria (Oferta 15%)($11.04) "
+				Escribir " 0. Regresar"
+				Leer SubOP
+				Si (SubOp <0 ) o (SubOP  >10) Entonces
+					Escribir "Numero de pedido invalido ingrese denuevo "
+				Sino 
+					Segun SubOP Hacer
+						1:  Op7 <- 13.25
+							descuento <- 0.10
+							Prod1 <- "Eucerin Aquaphor Tarro 80G"	
+						2:  Op7 <- 28.44
+							Prod2 <- "Eucerin Ph5 Piel Seca Y Sensible Gel Crema 200Ml"	
+						3:  Op7 <- 37.20
+							Prod3 <- "Hidraderm Hyal Crema Facial 50Ml"	
+						4:  Op7 <- 40.83
+							Prod4 <- "Doulys Hyal Serum Antiedad 15Ml"	
+						5:  Op7 <- 23.77
+							Prod5 <- "Anthelios Uvmune 400 Fluid Oil Control Spf50+ 50Ml (Oferta 30%)"	
+						6:  Op7 <- 12.74
+							Prod6 <- "Serum Retinol Barbaria 30Ml (Oferta 15%)"	
+						7:  Op7 <- 10.50
+							Prod7 <- "Cicastim Crema Reparadora Tubo X 20Ml"
+						8:  Op7 <- 20.80	
+							Prod8 <- "Cerave Gel Limpiador Espumoso Normal A Grasa 236Ml "	
+						9:  Op7 <- 36.86
+							Prod9 <- "Eucerin Sun Fac 50+Oil Control Toque Seco Gel 50Ml"
+					    10: Op7 <- 11.04
+							Prod10 <- "Crema Facial Vitamina C 50Ml Babaria"
+							
+						De Otro Modo: Op7 <- 0
+					FinSegun
+				FinSi
+				
+			8:	
+				Escribir "Vitaminas "
+				Escribir "Cual es su eleccion ??"
+                Escribir " 1. Acido Folico Ecomed 5Mg X 100 Tabletas ($12.58) "
+                Escribir " 2. Cebion Fresa 500Mg X 12 Sobres De 12 Tabletas ($29.38) "
+                Escribir " 3. Neuroglutan Bebible X 15 Sachets De 10Ml ($10.60) "
+				Escribir " 4. Centrum + Energia X 45 Tabletas ($28.15) "
+				Escribir " 5. Colageno Pharma-Natura 400 Mg X 30 Capsulas ($11.60) " 
+				Escribir " 6. Foskrol X 20 Viales Bebibles (Oferta 15%) ($27.74) "
+				Escribir " 7. Diabemax X 60 Tabletas (Ofertas 10%)($25.29) "
+				Escribir " 8. Griin Skin Hair & Nail X 14 Sobres (Oferta 20%)($10.15) "
+				Escribir " 9. Aciclovirax Pediatrico Suspension Frasco X 120Ml (Oferta 10%)($12.91) "
+				Escribir " 10. Petimed Jarabe Frasco X 240 Ml (Oferta 10%)($11.09) "
+				Escribir " 0. Regresar"
+				Leer SubOP
+				Si (SubOp <0 ) o (SubOP  >10) Entonces
+					Escribir "Numero de pedido invalido ingrese denuevo "
+				Sino 
+					Segun SubOP Hacer
+						1: Op8 <- 12.58	
+							descuento <- 0.10
+							Prod1 <- "Acido Folico Ecomed 5Mg X 100 Tabletas"	
+						2: Op8 <- 29.38
+							Prod2 <- "Cebion Fresa 500Mg X 12 Sobres De 12 Tabletas"	
+						3: Op8 <- 10.60
+							Prod3 <- "Neuroglutan Bebible X 15 Sachets De 10Ml"	
+						4: Op8 <- 28.15
+							Prod4 <- "Centrum + Energia X 45 Tabletas"	
+						5: Op8 <- 11.60
+							Prod5 <- "Colageno Pharma-Natura 400 Mg X 30 Capsulas"	
+						6: Op8 <- 27.174
+							Prod6 <- "Foskrol X 20 Viales Bebibles"	
+						7: Op8 <- 25.29
+							Prod7 <- "Diabemax X 60 Tabletas"	
+						8: Op8 <- 10.15
+							Prod8 <- "Griin Skin Hair & Nail X 14 Sobres"	
+						9: Op8 <- 12.91
+							Prod9 <- "Aciclovirax Pediatrico Suspension Frasco X 120Ml"
+						10:Op8 <- 11.09
+							Prod10 <- "Petimed Jarabe Frasco X 240 Ml"
+						De Otro Modo: Op8 <- 0
+					FinSegun
+				FinSi
+				
+			9:
+				Escribir "Vitaminas "
+				Escribir "Cual es su eleccion ??"
+                Escribir " 1 Acedef Vitaminas + Fluor Gotas Pediatricas 30Ml ($3.55)"
+                Escribir " 2 Astymin Jarabe X 110 Ml ($11.59)"
+                Escribir " 3 Bacaolina Jarabe Frasco X 480Ml ($4.35)"
+				Escribir " 4 Amino Nrg 5G/10Ml X 10 Ampollas Bebibles ($20.93)"
+				Escribir " 5 Aptival X 30 Tabletas ($14.41)"
+				Escribir " 6 Bedoyecta Pediatrica X 30 Tabletas Masticables ($7.64)"
+				Escribir " 7 Bioyetin 4000 Ui Caja X 6 Ampollas ($156.39)"
+				Escribir " 8 Broncho-Vaxom Adulto X 30 Capsulas ($46.06)"
+				Escribir " 9 Cartigel X 30 Sobres De 10 Gramos ($27.60)"
+				Escribir " 10 Cebion Naranja 500Mg X 12 Sobres De 12 Tabletas ($24.59)"
+				Escribir " 0. Regresar"
+				Leer SubOP
+				Si (SubOp <0 ) o (SubOP  >10) Entonces
+					Escribir "Numero de pedido invalido ingrese denuevo "
+				Sino 
+					Segun SubOP Hacer
+						1: Op9 <- 3.55
+							descuento <- 0.10
+							Prod1 <- "Acedef Vitaminas + Fluor Gotas Pediatricas 30Ml"	
+						2: Op9 <- 11.59
+							Prod2 <- "Astymin Jarabe X 110 Ml"	
+						3: Op9 <- 4.35
+							Prod3 <- "Bacaolina Jarabe Frasco X 480Ml"	
+						4: Op9 <- 20.93
+							Prod4 <- "Amino Nrg 5G/10Ml X 10 Ampollas Bebibles"	
+						5: Op9 <- 14.41
+							Prod5 <- "Aptival X 30 Tabletas"	
+						6: Op9 <- 7.64
+							Prod6 <- "Bedoyecta Pediatrica X 30 Tabletas Masticables"	
+						7: Op9 <- 156.39
+							Prod7 <- "Bioyetin 4000 Ui Caja X 6 Ampollas"	
+						8: Op9 <- 46.06
+							Prod8 <- " Broncho-Vaxom Adulto X 30 Capsulas"	
+						9: Op9 <- 27.60
+							Prod9 <- "Cartigel X 30 Sobres De 10 Gramos"	
+						10: Op9 <- 24.59
+							Prod10 <- "Cebion Naranja 500Mg X 12 Sobres De 12 Tabletas"
+						De Otro Modo: Op9 <- 0
+					FinSegun
+				FinSi
+			10:
+				Escribir "Productos higienicos "
+				Escribir "Cual es su eleccion ??"
+				Escribir " 1 2Pack Atlevit Talco Promocion ($3.99)"
+                Escribir " 2 Aclarador Intimo En Crema Bioaqua 30Gr ($12.29)"
+                Escribir " 3 Alicate Para Pedicure Trim ($11.79)"
+				Escribir " 4 Anthelios Uvmune 400 Pediatrics Spf 50Crema 50 Ml ($27.34)"
+				Escribir " 5 Bloqueador Facial Sunscreen Hawaiian Spf50 60Ml ($14.41)"
+				Escribir " 6 Bedoyecta Pediatrica X 30 Tabletas Masticables ($13.99)"
+				Escribir " 7 Cetaphil Crema Humectante Tarro X 250 Gramos ($25.96)"
+				Escribir " 8 Crema Corporal En Gel De Aloe Vera 99% 250Ml ($11.60)"
+				Escribir " 9 Crema Kery Derm Original 400G Con Valvula ($9.98)"
+				Escribir " 10 Crema Manos Y Uñas Sebamed Tubo X 75Ml ($17.01)"
+				Escribir " 0. Regresar"
+				Leer SubOP
+				Si (SubOp <0 ) o (SubOP  >10) Entonces
+					Escribir "Numero de pedido invalido ingrese denuevo "
+				Sino 
+					Segun SubOP Hacer
+						1: Op10 <- 3.99	
+							descuento <- 0.10
+							Prod1 <- "2Pack Atlevit Talco Promocion"		
+						2: Op10 <- 12.29
+							Prod2 <- "Aclarador Intimo En Crema Bioaqua 30Gr"	
+						3: Op10 <- 11.79
+							Prod3 <- "Alicate Para Pedicure Trim"	
+						4: Op10 <- 27.34
+							Prod4 <- "Anthelios Uvmune 400 Pediatrics Spf 50Crema 50 Ml"	
+						5: Op10 <- 14.41
+							Prod5 <- "Bloqueador Facial Sunscreen Hawaiian Spf50 60Ml"	
+						6: Op10 <- 13.99
+							Prod6 <- "Bedoyecta Pediatrica X 30 Tabletas Masticables"	
+						7: Op10 <- 25.96
+							Prod7 <- "Cetaphil Crema Humectante Tarro X 250 Gramos"	
+						8: Op10 <- 11.60
+							Prod8 <- "Crema Corporal En Gel De Aloe Vera 99% 250Ml"	
+						9: Op10 <- 9.98
+							Prod9 <- "Crema Kery Derm Original 400G Con Valvula"	
+						10: Op10 <- 17.01
+							Prod10 <- "Crema Manos Y Uñas Sebamed Tubo X 75Ml"
+						De Otro Modo: Op10 <- 0
+					FinSegun
+				FinSi
+				
+			11:
+				Sumatotal <- Op1 + Op2 + Op3 + Op4 + Op5 + Op6 + Op7+ Op8 + Op9 + Op10 
+				
+				Si Sumatotal > 0 Entonces
+					Limpiar Pantalla
+					Escribir "========================================"
+					Escribir "       RECIBO DE LA FARMACIA :D            "
+					Escribir "========================================"
+					
+					Si Op1 > 0 Entonces 
+						Escribir "- ", Prod1, " ($", Op1, ")" 
+					FinSi
+					Si Op2 > 0 Entonces
+						Escribir "- ", Prod2, " ($", Op2, ")" 
+					FinSi
+					Si Op3 > 0 Entonces
+						Escribir "- ", Prod3, " ($", Op3, ")" 
+					FinSi
+					Si Op4 > 0 Entonces
+						Escribir "- ", Prod4, " ($", Op4, ")" 
+					FinSi
+					Si Op5 > 0 Entonces
+						Escribir "- ", Prod5, " ($", Op5, ")" 
+					FinSi
+					Si Op6 > 0 Entonces
+						Escribir "- ", Prod6, " ($", Op6, ")" 
+					FinSi
+					Si Op7 > 0 Entonces
+						Escribir "- ", Prod7, " ($", Op7, ")" 
+					FinSi
+					Si Op8 > 0 Entonces
+						Escribir "- ", Prod8, " ($", Op8, ")" 
+					FinSi
+					Si Op9 > 0 Entonces
+						Escribir "- ", Prod9, " ($", Op9, ")" 
+					FinSi
+					Si Op10 > 0 Entonces
+						Escribir "- ", Prod10, " ($", Op10, ")" 
+					FinSi
+					
+					Escribir "  Su total a pagar es ", "$", Sumatotal
+					Escribir "Cual sera su metodo de pago (Tarjeta o Efectivo) "
+					Escribir " Elegir y escribir numero 1 o 2 "
+					Escribir  " 1. Tarjeta " 
+					Escribir  " 2. Efectivo "
+					Leer ToF
+					Segun  ToF hacer
+						1: 
+							Escribir "Pago aceptado con tarjeta, Gracias"
+						2: 
+							Escribir "Con cuanto pagara ?? "
+							Leer con_cuanto_pagara
+							
+							Si con_cuanto_pagara >= Sumatotal Entonces
+								Cambio <- con_cuanto_pagara - Sumatotal
+								Escribir "Su cambio es de: $", Cambio
+							SiNo
+								Escribir "No le alcanza "
+						    Finsi 
+					    De Otro Modo:
+							Escribir "No selecciono ningun metodo de pago, !Pague !"
+							
+							Mientras metodo_de_pago = "Tarjeta" Hacer
+								
+							FinMientras
+					FinSegun
+					
+				Sino 
+					Escribir "No selecciono nada ey. "
+				FinSi
+				
+				Escribir "Gracias, vuelva pronto"
+				
+			12:
+				Limpiar Pantalla
+				acceso <- Falso
+				
+				Para i <- 1 Hasta 3 Hacer
+					
+					Si acceso = Falso Entonces
+						Escribir " Digite su usuario: "
+						Leer usuario
+						
+						Escribir " Digite su clave: "
+						Leer clave
+						si usuario = "admin" Y clave = 1234 Entonces
+							Escribir " Bienvenido a la base de datos de farmacia "
+							acceso <- Verdadero
+						SiNo
+							Escribir "Datos invalidos, vuelva a digitarlos ", i
+							
+						FinSi
+					FinSi
+				FinPara
+				
+				Si acceso = Verdadero 	Entonces
+					Escribir"Que quiere hacer ?"
+					Escribir "Elija una opcion " 
+					Escribir "   1. Ingresar productos a inventario " 
+					Escribir "   2. Mostrar productos de inventario " 
+					Leer Op_admin
+					Si Op_admin = 2 Entonces
+						Escribir " Leches, formulas y suplementos : "
+					
+						Escribir " 1. Ascenda Sabor Vainilla Lata X 400 Gramos (Exp: 2028) (Cant:100)"
+						Escribir " 2. Bebelac Gold #3 Lata X 900 Gramos (Exp: 2028)(Cant:100)"
+						Escribir " 3.  Ensure Advance Fresa-Banana Lata X 850 Gramos (Exp: 2028) (Cant:100)"
+						Escribir " 4.  Enfamil Sin Lactosa Premium Lata X 900 Gramos (Exp:2028) (Cant:100)"
+						Escribir " 5.  Ensure Advance Sabor Chocolate Lata X 400 Gramos (Exp: 2028) (Cant:100)"
+						Escribir " 6.Ensure Ng Vainilla  Lata 400 Gramos (Exp:2028) (Cant:82)"
+						Escribir " 7. Ensure Plus Vainilla Bote X 220Ml (Exp:2028) (Cant:82)"
+						Escribir " 8.Ensure Sabor Fresa Lata X 850 Gramos (Exp:2028) (Cant:82)"
+						Escribir " 9. Enterex Dbt Fresa Bote X 8 Onzas (Exp:2028) (Cant:82)"
+						Escribir " 10. Enterex Total Sabor Vainilla Lata X 400 Gramos (Exp:2028) (Cant:82)"
+						Escribir "      "
+						Escribir "Pastillas:"
+						
+						Escribir " 1 Acetaminofen Forte Mk X 1 Tableta (Exp: 2027) (Cant:220) "
+						Escribir " 2 Loratadina Ls 10Mg X 10 Tabletas (Exp: 2027) (Cant:220) "
+						Escribir " 3 Alercet 10Mg X 10 Tabletas (Exp: 2027) (Cant:220) "
+						escribir " 4 Acetaminofen Mk 500Mg X 1 (Exp: 2027) (Cant:220) "
+						Escribir " 5 Viro-Grip A.M. X 24 Sobres De 2 Gelcaps (Exp: 2027) (Cant:220) "
+						escribir " 6 Winex X 20 Tabletas (Exp: 2027) (Cant:220) "
+						Escribir " 7 Tramal Gotas Orales 10Mg Frasco X 10Ml (Exp: 2027) (Cant:180) "
+						Escribir " 8 Colipax Nf X 100 Comprimidos (Exp: 2027) (Cant:180) "
+						Escribir " 9 Loratadina Ls 10Mg X 10 Tabletas (Exp: 2027) (Cant:180) "
+						Escribir " 10 Tialgin 1 Gr X 20 Comprimidos (Exp: 2027) (Cant:180) "
+						Escribir "   "
+						Escribir "Kids:"
+						
+						Escribir " 1. Cepillo Kin Interdental Ultramicro 0.6Mm (Exp:2028) (Cant:75) "
+						Escribir " 2. Fluor Kin Enjuague Bucal Infantil Frasco X 500Ml (Exp: 2028) (Cant:75) "
+						Escribir " 3. Fluor Kin Infantil Pasta Tubo X 75+25Ml (Exp:2028) (Cant:75) "
+						Escribir " 4. Cariax Gingival Enjuague 500Ml + 100Ml (Exp:2028) (Cant:75) "
+						Escribir " 5. Cepillo Dental Kin Extra-Suave (Exp:2028)  (Cant:75) "
+						Escribir " 6. Cepillo Kin Interdental Micro 0.9Mm (Exp:2028) "
+						Escribir " 7. Cepillo Kin Interdental Ultramicro 0.6Mm (Exp: 2028)  (Cant:65) "
+						Escribir " 8. Oddent Fluor Infantil Gel 50 Ml (Exp:2028)  (Cant:65) "
+						Escribir " 9. Seda Dental Fkd Mentolada Con Cera X 50M (Exp: 2028) (Cant:65) "
+						Escribir " 10. Perio Kin Gel Tubo X 30Ml(Exp:2028)  (Cant:65) "
+						Escribir "    "
+						Escribir "Skincare "
+					
+						Escribir " 1 Mineral 89 Booster De Uso Diario 30Ml (Exp:2028) (Cant:45) "
+						Escribir " 2 Pure Vitamin C10 30Ml La Roche Posay (Exp:2028) (Cant:45) "
+						Escribir " 3 Salises Gel Hidratante 50Ml(Exp:2028) (Cant:45) "
+						Escribir " 4 Serum Revitalift Ácido Hialurónico Sérum 30ml(Exp:2028) (Cant:45) "
+						Escribir " 5 Salises Gel Hidratante 50Ml(Exp:2028) (Cant:45) "
+						escribir " 6 Clinique Gel Humectante Dramatically Different (Exp: 2028) (Cant:57) "
+						escribir " 7 Hyaluronic Acid 2% + B5 Hydrating Serum with Ceramides (Exp: 2028) (Cant:57) "
+						Escribir " 8 Multi-Peptide + Hyaluronic Acid Serum for Firmness and Elasticity (Exp:2028) (Cant:57) "
+						escribir " 9 Glazing Milk Ceramide Facial Essence (Exp:2028)"
+						escribir " 10 Glycolic Acid 7% Exfoliating and Brightening Daily Toner (Exp:2028) (Cant:57) "
+						Escribir "    "
+						Escribir " Sueros "
+						
+						Escribir " 1. Electrolit Suero Coco Frasco 625 Ml (Exp:2028)"
+						Escribir " 2. Electrolit Suero Fresa Frasco 625 Ml  (Exp:2028) (Cant:300) "
+						Escribir " 3. Electrolit Suero Manzana Frasco 625 Ml (Exp:2028) (Cant:300) "
+						Escribir " 4. Electrolit Suero Sabor Jamaica 625Ml (Exp:2028)  (Cant:300) "
+						Escribir " 5. Electrolit Suero Pediatrico Sabor Manzana X 500 Ml (Exp: 2028)  (Cant:300) "
+						Escribir " 6. Electrolit Suero Sabor Mora Azul 625Ml (Exp:2028)  (Cant:320) "
+						Escribir " 7. Electrolit Suero Sabor Naranja-Mandarina X 625 Ml (Exp:2028)  (Cant:320) "
+						Escribir " 8. Pedialyte Suero Coco 60 Meq Frasco X 500Ml (Exp:2028 )  (Cant:320) "
+						Escribir " 9. Pedialyte Suero Fos Coco 30 Meq Two Pack X 500Ml (Exp:2028)  (Cant:320) "
+						Escribir " 10. Pedialyte Suero Fresa 60 Meq Frasco X 500Ml (Exp:2028)  (Cant:320) "
+						Escribir "    "
+						Escribir "Primeros auxlios"
+						
+						Escribir " 1. Curas Cureband Venditas Adulto X 100 unidades (Exp:2028) (Cant:450) "
+						Escribir " 2.  Gasa Cureband 7.5X7.5 X 24 Sobres De 2 Gasas (Exp:2028)  (Cant:450) "
+						Escribir " 3. Microporoso Esparadrapo 1.25Cm X 4.5M Blanco X 12 (Oferta 20%)(Exp: 2028) (Cant:450) "
+						Escribir " 4. Alcohol Suizos De 90° Mediano Bote 8 Onza (Exp: 2028)  (Cant:450) "
+						Escribir " 5. Oxigen 10 Vol. Solucion Frasco X 120Ml (Exp:2028)  (Cant:450) "
+						Escribir " 6. Venda Migasa Rollo 2 Pulgadas 45 Gramos (Exp:2028)  (Cant:380) "
+						Escribir " 7. Pomada Withfield 50 Gramos (Exp:2028)  (Cant:380) "
+						Escribir " 8. Algodón Suizo Sky Cotton Bolsa X 50 Gramos (Exp:2028)  (Cant:380) "
+						Escribir " 9. Termometro Digital Multifuncion With Beeper (Exp: 2028)  (Cant:380) "
+						Escribir " 10. Sinocare Tensiometro Electronico (Exp:2028)  (Cant:380) "
+						Escribir "    "
+						Escribir "Dermocosmetica "
+						
+						Escribir " 1. Eucerin Aquaphor Tarro 80G (Exp:2028) "
+						Escribir " 2. Eucerin Ph5 Piel Seca Y Sensible Gel Crema 200Ml (Exp: 2028)  (Cant:90) "
+						Escribir " 3. Hidraderm Hyal Crema Facial 50Ml (Exp:2028)  (Cant:90) "
+						Escribir " 4. Doulys Hyal Serum Antiedad 15Ml (Exp:2028)  (Cant:90) "
+						Escribir " 5. Anthelios Uvmune 400 Fluid Oil Control Spf50+ 50Ml (Exp: 2028)  (Cant:90) "
+						Escribir " 6. Serum Retinol Barbaria 30Ml (Exp:2028)  (Cant:50) "
+						Escribir " 7. Cicastim Crema Reparadora Tubo X 20Ml (Exp: 2028)  (Cant:50) "
+						Escribir " 8. Cerave Gel Limpiador Espumoso Normal A Grasa 236Ml  (Exp: 2028)  (Cant:50) "
+						Escribir " 9. Eucerin Sun Fac 50+Oil Control Toque Seco Gel 50Ml (Exp:2028) (Cant:50) "
+						Escribir "10. Crema Facial Vitamina C 50Ml Babaria (Exp:2028)  (Cant:50) "
+						Escribir "    "
+						Escribir "Vitaminas "
+						
+						Escribir " 1. Acido Folico Ecomed 5Mg X 100 Tabletas (Exp:2028)  (Cant:38) "
+						Escribir " 2. Cebion Fresa 500Mg X 12 Sobres De 12 Tabletas (Exp:2028)  (Cant:38) "
+						Escribir " 3. Neuroglutan Bebible X 15 Sachets De 10Ml (Exp:2028)  (Cant:38) "
+						Escribir " 4. Centrum + Energia X 45 Tabletas (Exp:2028)  (Cant:38) "
+						Escribir " 5. Colageno Pharma-Natura 400 Mg X 30 Capsulas (Exp:2028)  (Cant:38) "
+						Escribir " 6. Foskrol X 20 Viales Bebibles (Exp:2028)  (Cant:48) "
+						Escribir " 7. Diabemax X 60 Tabletas (Exp:2028)  (Cant:48) "
+						Escribir " 8. Griin Skin Hair & Nail X 14 Sobres (Oferta 20)(Exp: 2028)  (Cant:48) "
+						Escribir " 9. Aciclovirax Pediatrico Suspension Frasco X 120Ml (Oferta 10%) (Exp: 2028) (Cant:48) "
+						Escribir " 10. Petimed Jarabe Frasco X 240 Ml (Oferta 10%)(Exp: 2028)  (Cant:48) "
+						escribir "        "
+						Escribir "Jarabes"
+						
+						Escribir " 1 Acedef Vitaminas + Fluor Gotas Pediatricas 30Ml (Exp: 2026) (Cant:250) "
+						Escribir " 2 Astymin Jarabe X 110 Ml (Exp: 2026) (Cant:250) "
+						Escribir " 3 Bacaolina Jarabe Frasco X 480Ml (Exp: 2026) (Cant:250) "
+						Escribir " 4 Amino Nrg 5G/10Ml X 10 Ampollas Bebibles (Exp: 2026) (Cant:250) "
+						Escribir " 5 Aptival X 30 Tabletas (Exp: 2026) (Cant:250) "
+						Escribir " 6 Bedoyecta Pediatrica X 30 Tabletas Masticables (Exp: 2026) (Cant:270) "
+						Escribir " 7 Bioyetin 4000 Ui Caja X 6 Ampollas (Exp: 2026) (Cant:270) "
+						Escribir " 8 Broncho-Vaxom Adulto X 30 Capsulas (Exp: 2026) (Cant:270) "
+						Escribir " 9 Cartigel X 30 Sobres De 10 Gramos (Exp: 2026) (Cant:270) "
+						Escribir " 10 Cebion Naranja 500Mg X 12 Sobres De 12 Tabletas (Exp: 2026) (Cant:270) "
+						escribir "          "
+						
+						Escribir "Productos higienicos "
+						
+						Escribir " 1 2Pack Atlevit Talco Promocion (Exp:2028) (Cant: 110)"
+						Escribir " 2 Aclarador Intimo En Crema Bioaqua 30Gr (Exp: 2028) (Cant: 110)"
+						Escribir " 3 Alicate Para Pedicure Trim (Exp:2028) (Cant: 110)"
+						Escribir " 4 Anthelios Uvmune 400 Pediatrics Spf 50Crema 50 Ml (Exp:2028) (Cant: 110)"
+						Escribir " 5 Bloqueador Facial Sunscreen Hawaiian Spf50 60Ml (Exp:2028) (Cant: 110)"
+						Escribir " 6 Bedoyecta Pediatrica X 30 Tabletas Masticables (Exp: 2028) (Cant:95)"
+						Escribir " 7 Cetaphil Crema Humectante Tarro X 250 Gramos (Exp:2028) (Cant:95)"
+						Escribir " 8 Crema Corporal En Gel De Aloe Vera 99% 250Ml (Exp: 2028) (Cant:95)"					
+						Escribir " 9 Crema Kery Derm Original 400G Con Valvula (Exp:2028) (Cant:95)"
+						Escribir " 10 Crema Manos Y Uñas Sebamed Tubo X 75Ml (Exp: 2028) (Cant:95)"
+					FinSi
+					si Op_admin = 1 Entonces
+						Escribir "Ingrese nuevo producto"
+						leer nuevo_producto
+						Escribir " Producto guardado en inventario"
+					FinSi
+					Escribir "Fecha de expiracion: "
+					  // Se guarda en el segundo arreglo
+					Escribir "Precio unitario: "
+					Leer preciosinv[11] // Se guarda en el tercer arreglo
+					
+					Escribir "Guardado exitosamente en la posicion ", pos
+				SiNo
+					Escribir "Error: La posicion debe estar entre 1 y 10."
+				FinSi 
+				Escribir "Inventario Registrado:"
+				Para i <- 1 Hasta 11 Hacer
+					// Solo mostramos si el casillero no esta vacio
+					Si nombresinve[i] <> "" Entonces
+						Escribir "Pos [", i, "]: ", nombresinve[i], " | Vence: ", fechasinve[i], " | $", preciosinv[i]
+					FinSi
+				FinPara
+		FinSegun
+
+	Hasta Que Op = 11
+FinAlgoritmo

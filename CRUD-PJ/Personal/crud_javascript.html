@@ -9,14 +9,14 @@
     <h2>CRUD Básico con JavaScript</h2>
 
     <!-- FORMULARIO -->
-    <input type="hidden" id="indice">
+    <input type="hidden" id="html_indice">
 
     <label>Nombre:</label>
-    <input type="text" id="nombre">
+    <input type="text" id="html_nombre">
     <br><br>
 
     <label>Edad:</label>
-    <input type="number" id="edad">
+    <input type="number" id="html_edad">
     <br><br>
 
     <button onclick="guardar()">Guardar</button>
@@ -52,8 +52,8 @@
         //    titulo.remove(); // Elimina el elemento del DOM
        // }
        
-        let nombre = document.getElementById("nombre").value;
-        let edad = document.getElementById("edad").value;
+        let nombre = document.getElementById("html_nombre").value;
+        let edad = document.getElementById("html_edad").value;
 
         // CONDICIONAL
         if (nombre === "" || edad === "") {
@@ -65,7 +65,7 @@
                 nombre: nombre,
                 edad: edad
             };
-
+            console.log(persona);
             // SECUENCIAL
             personas.push(persona);
             limpiar();
@@ -80,15 +80,15 @@
         tabla.innerHTML = "";
 
         // ESTRUCTURA REPETITIVA
-        for (let i = 0; i < personas.length; i++) {
+        for (let contador_indices = 0; contador_indices < personas.length; contador_indices++) {
 
             tabla.innerHTML += `
                 <tr>
-                    <td>${personas[i].nombre}</td>
-                    <td>${personas[i].edad}</td>
+                    <td>${personas[contador_indices].nombre}</td>
+                    <td>${personas[contador_indices].edad}</td>
                     <td>
-                        <button onclick="editar(${i})">Editar</button>
-                        <button onclick="eliminar(${i})">Eliminar</button>
+                        <button onclick="editar(${contador_indices})">Editar</button>
+                        <button onclick="eliminar(${contador_indices})">Eliminar</button>
                     </td>
                 </tr>
             `;
@@ -96,19 +96,19 @@
     }
 
     // FUNCIÓN EDITAR
-    function editar(i) {
+    function editar(indice) {
 
-        document.getElementById("nombre").value = personas[i].nombre;
-        document.getElementById("edad").value = personas[i].edad;
-        document.getElementById("indice").value = i;
+        document.getElementById("html_nombre").value = personas[indice].nombre;
+        document.getElementById("html_edad").value = personas[indice].edad;
+        document.getElementById("html_indice").value = indice;
     }
 
     // FUNCIÓN ACTUALIZAR (UPDATE)
     function actualizar() {
 
-        let i = document.getElementById("indice").value;
-        let nombre = document.getElementById("nombre").value;
-        let edad = document.getElementById("edad").value;
+        let i = document.getElementById("html_indice").value;
+        let nombre = document.getElementById("html_nombre").value;
+        let edad = document.getElementById("html_edad").value;
 
         if (nombre === "" || edad === "") {
             alert("No se pueden dejar campos vacíos");
@@ -133,9 +133,9 @@
 
     // LIMPIAR CAMPOS
     function limpiar() {
-        document.getElementById("nombre").value = "";
-        document.getElementById("edad").value = "";
-        document.getElementById("indice").value = "";
+        document.getElementById("html_nombre").value = "";
+        document.getElementById("html_edad").value = "";
+        document.getElementById("html_indice").value = "";
     }
 
 </script>

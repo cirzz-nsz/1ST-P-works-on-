@@ -80,6 +80,9 @@
             console.log(persona);
             // SECUENCIAL
             personas.push(persona);
+
+            botonactualizar.hidden = true;
+            
             limpiar();
             mostrar();
         }
@@ -157,6 +160,8 @@
 
     // LIMPIAR CAMPOS
     function limpiar() {
+        botonactualizar.hidden = true;
+
         document.getElementById("html_nombre").value = "";
         document.getElementById("html_apellido").value = "";
         document.getElementById("html_edad").value = "";

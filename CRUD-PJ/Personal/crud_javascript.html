@@ -55,10 +55,12 @@
         let nombre = document.getElementById("html_nombre").value;
         let edad = document.getElementById("html_edad").value;
 
-        // CONDICIONAL
-        if (nombre === "" || edad === "") {
-            alert("Todos los campos son obligatorios");
-        } else {
+
+         if (nombre === "" || edad === "") {
+                alert("Todos los campos son obligatorios");
+             } else if (edad < 3 || edad > 20) {
+            alert("La edad debe estar entre 3 y 20 años ");
+            }  else {
 
             // OBJETO
             let persona = {
@@ -71,6 +73,9 @@
             limpiar();
             mostrar();
         }
+
+        // CONDICIONAL
+
     }
 
     // FUNCIÓN MOSTRAR (READ)
@@ -111,7 +116,9 @@
         let edad = document.getElementById("html_edad").value;
 
         if (nombre === "" || edad === "") {
-            alert("No se pueden dejar campos vacíos");
+                alert("Todos los campos son obligatorios");
+             } else if (edad < 3 || edad > 20) {
+            alert("La edad debe estar entre 3 y 20 años ");
         } else {
 
             personas[i].nombre = nombre;

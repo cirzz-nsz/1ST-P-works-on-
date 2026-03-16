@@ -14,6 +14,10 @@
     <label>Nombre:</label>
     <input type="text" id="html_nombre">
     <br><br>
+    
+    <label>Apellido:</label>
+    <input type="text" id="html_apellido">
+    <br><br>
 
     <label>Edad:</label>
     <input type="number" id="html_edad">
@@ -29,6 +33,7 @@
         <thead>
             <tr>
                 <th>Nombre</th>
+                <th>Apellido</th>
                 <th>Edad</th>
                 <th>Acciones</th>
             </tr>
@@ -54,9 +59,10 @@
        
         let nombre = document.getElementById("html_nombre").value;
         let edad = document.getElementById("html_edad").value;
+        let apellido = document.getElementById("html_apellido").value;
 
 
-         if (nombre === "" || edad === "") {
+         if (nombre === "" || edad === "" || apellido === "") {
                 alert("Todos los campos son obligatorios");
              } else if (edad < 3 || edad > 20) {
             alert("La edad debe estar entre 3 y 20 años ");
@@ -65,7 +71,8 @@
             // OBJETO
             let persona = {
                 nombre: nombre,
-                edad: edad
+                edad: edad,
+                apellido: apellido
             };
             console.log(persona);
             // SECUENCIAL
@@ -90,6 +97,7 @@
             tabla.innerHTML += `
                 <tr>
                     <td>${personas[contador_indices].nombre}</td>
+                    <td>${personas[contador_indices].apellido}</td>
                     <td>${personas[contador_indices].edad}</td>
                     <td>
                         <button onclick="editar(${contador_indices})">Editar</button>
@@ -104,6 +112,7 @@
     function editar(indice) {
 
         document.getElementById("html_nombre").value = personas[indice].nombre;
+        document.getElementById("html_apellido").value = personas[indice].apellido;
         document.getElementById("html_edad").value = personas[indice].edad;
         document.getElementById("html_indice").value = indice;
     }
@@ -113,9 +122,10 @@
 
         let i = document.getElementById("html_indice").value;
         let nombre = document.getElementById("html_nombre").value;
+        let apellido = document.getElementById("html_apellido").value;
         let edad = document.getElementById("html_edad").value;
 
-        if (nombre === "" || edad === "") {
+        if (nombre === "" || edad === "" || apellido === "") {
                 alert("Todos los campos son obligatorios");
              } else if (edad < 3 || edad > 20) {
             alert("La edad debe estar entre 3 y 20 años ");
@@ -123,6 +133,7 @@
 
             personas[i].nombre = nombre;
             personas[i].edad = edad;
+            personas[i].apellido = apellido;
 
             limpiar();
             mostrar();
@@ -141,6 +152,7 @@
     // LIMPIAR CAMPOS
     function limpiar() {
         document.getElementById("html_nombre").value = "";
+        document.getElementById("html_apellido").value = "";
         document.getElementById("html_edad").value = "";
         document.getElementById("html_indice").value = "";
     }

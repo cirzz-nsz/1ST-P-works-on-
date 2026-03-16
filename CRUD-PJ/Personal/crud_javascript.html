@@ -166,8 +166,10 @@
 
     // FUNCIÓN ELIMINAR (DELETE)
     function eliminar(i) {
+        let yesorno = confirm("¿Desea eliminar este registro?");
+        console.log(yesorno);
 
-        if (confirm("¿Desea eliminar este registro?")) {
+        if (yesorno) {
             personas.splice(i, 1);
             mostrar();
         }

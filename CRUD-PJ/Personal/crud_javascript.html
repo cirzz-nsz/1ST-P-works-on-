@@ -24,7 +24,7 @@
     <br><br>
 
     <button onclick="guardar()">Guardar</button>
-    <button onclick="actualizar()">Actualizar</button>
+    <button id="boton_actualizar" onclick="actualizar()">Actualizar</button>
     <button onclick="limpiar()">Limpiar</button>
 
     <hr>
@@ -43,6 +43,8 @@
     </table>
 
 <script>
+    let botonactualizar = document.getElementById("boton_actualizar");
+    botonactualizar.hidden = true;
 
     // ARRAY DONDE SE GUARDAN LOS DATOS
     let personas = [];
@@ -111,7 +113,7 @@
 
     // FUNCIÓN EDITAR
     function editar(indice) {
-
+     botonactualizar.hidden = false;
         document.getElementById("html_nombre").value = personas[indice].nombre;
         document.getElementById("html_apellido").value = personas[indice].apellido;
         document.getElementById("html_edad").value = personas[indice].edad;
@@ -136,9 +138,12 @@
             personas[i].edad = edad;
             personas[i].apellido = apellido;
 
+            botonactualizar.hidden = true;
+
             limpiar();
             mostrar();
         }
+     
     }
 
     // FUNCIÓN ELIMINAR (DELETE)

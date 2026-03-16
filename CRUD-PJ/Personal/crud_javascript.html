@@ -19,6 +19,10 @@
     <input type="text" id="html_apellido">
     <br><br>
 
+    <label>NIE:</label>
+    <input type="text" id="html_nie">
+    <br><br>
+
     <label>Edad:</label>
     <input type="number" id="html_edad">
     <br><br>
@@ -35,6 +39,7 @@
             <tr>
                 <th>Nombre</th>
                 <th>Apellido</th>
+                <th>NIE</th>
                 <th>Edad</th>
                 <th>Acciones</th>
             </tr>
@@ -63,11 +68,12 @@
        // }
        
         let nombre = document.getElementById("html_nombre").value;
+        let nie = document.getElementById("html_nie").value;
         let edad = document.getElementById("html_edad").value;
         let apellido = document.getElementById("html_apellido").value;
 
 
-         if (nombre === "" || edad === "" || apellido === "") {
+         if (nombre === "" || edad === "" || apellido === "" || nie === "") {
                 alert("Todos los campos son obligatorios");
              } else if (edad < 3 || edad > 20) {
             alert("La edad debe estar entre 3 y 20 años ");
@@ -77,7 +83,8 @@
             let persona = {
                 nombre: nombre,
                 edad: edad,
-                apellido: apellido
+                apellido: apellido,
+                nie: nie
             };
             console.log(persona);
             // SECUENCIAL
@@ -106,6 +113,7 @@
                 <tr>
                     <td>${personas[contador_indices].nombre}</td>
                     <td>${personas[contador_indices].apellido}</td>
+                    <td>${personas[contador_indices].nie}</td>
                     <td>${personas[contador_indices].edad}</td>
                     <td>
                         <button onclick="editar(${contador_indices})">Editar</button>
@@ -122,6 +130,7 @@
      botonguardar.hidden = true;
         document.getElementById("html_nombre").value = personas[indice].nombre;
         document.getElementById("html_apellido").value = personas[indice].apellido;
+        document.getElementById("html_nie").value = personas[indice].nie;
         document.getElementById("html_edad").value = personas[indice].edad;
         document.getElementById("html_indice").value = indice;
     }
@@ -132,9 +141,10 @@
         let i = document.getElementById("html_indice").value;
         let nombre = document.getElementById("html_nombre").value;
         let apellido = document.getElementById("html_apellido").value;
+        let nie = document.getElementById("html_nie").value;
         let edad = document.getElementById("html_edad").value;
 
-        if (nombre === "" || edad === "" || apellido === "") {
+        if (nombre === "" || edad === "" || apellido === "" || nie === "") {
                 alert("Todos los campos son obligatorios");
              } else if (edad < 3 || edad > 20) {
             alert("La edad debe estar entre 3 y 20 años ");
@@ -143,6 +153,7 @@
             personas[i].nombre = nombre;
             personas[i].edad = edad;
             personas[i].apellido = apellido;
+            personas[i].nie = nie;
 
             botonactualizar.hidden = true;
             botonguardar.hidden = false;
@@ -169,6 +180,7 @@
 
         document.getElementById("html_nombre").value = "";
         document.getElementById("html_apellido").value = "";
+        document.getElementById("html_nie").value = "";
         document.getElementById("html_edad").value = "";
         document.getElementById("html_indice").value = "";
     }

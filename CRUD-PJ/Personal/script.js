@@ -1,102 +1,138 @@
-    let personas = [];
+let botonguardar = document.getElementById("boton_guardar");
+botonguardar.hidden = false;
+let botonactualizar = document.getElementById("boton_actualizar");
+botonactualizar.hidden = true;
 
-    //FUNCION GUARDAR
-    function guardar() {
+// ARRAY DONDE SE GUARDAN LOS DATOS
+let personas = [];
 
-        let nombre = document.getElementById("nombre").value;
-        let apellido = document.getElementById("apellido").value;
-        let nie = document.getElementById("nie").value;
-        let edad = document.getElementById("edad").value;
+// FUNCIÓN GUARDAR (CREATE)
+function guardar() {
+    // document.body.bgColor="black";
+    
+    // document.body.style.color="white";
 
-        if (nombre === "" || apellido === "" || nie === "" || edad === "") {
+    // const titulo = document.querySelector("h2"); // Selecciona el primer h1
+    // if (titulo) {
+    //    titulo.remove(); // Elimina el elemento del DOM
+    // }
+    
+    let nombre = document.getElementById("html_nombre").value;
+    let nie = document.getElementById("html_nie").value;
+    let edad = document.getElementById("html_edad").value;
+    let apellido = document.getElementById("html_apellido").value;
+
+
+        if (nombre === "" || edad === "" || apellido === "" || nie === "") {
             alert("Todos los campos son obligatorios");
-        } else {
-            //TIPO DE ARREGLO EN JAVASCRIPT
-            let persona = {
-                nombre: nombre,
-                apellido:apellido,
-                nie:nie,
-                edad: edad
-            };
+            } else if (edad < 3 || edad > 20) {
+        alert("La edad debe estar entre 3 y 20 años ");
+        }  else {
 
-            personas.push(persona); //Metodo Push en javascript para añadir a la pila
-            limpiar();
-            mostrar();
-        }
+        // OBJETO
+        let persona = {
+            nombre: nombre,
+            edad: edad,
+            apellido: apellido,
+            nie: nie
+        };
+        console.log(persona);
+        // SECUENCIAL
+        personas.push(persona);
+
+        botonactualizar.hidden = true;
+
+        limpiar();
+        mostrar();
     }
 
-    // FUNCION MOSTRAR
-    function mostrar() {
-        let tabla = document.getElementById("tabla");
-        tabla.innerHTML = "";
+    // CONDICIONAL
 
-        //METODO LENGHT
-        for (let i = 0; i < personas.length; i++) {
+}
 
-            //METODO INNER
-            //MENSAJE ALERT PARA PERMITIR ELIMINAR UN DATO
-            tabla.innerHTML += `
-                <tr>
-                    <td>${personas[i].nombre}</td>
-                    <td>${personas[i].apellido}</td>
-                    <td>${personas[i].nie}</td>
-                    <td>${personas[i].edad}</td>
+// FUNCIÓN MOSTRAR (READ)
+function mostrar() {
 
-                    <td>
-                        <button class="btn btn-info btn-sm" onclick="editar(${i})">Editar</button>
-                        <button class="btn btn-danger btn-sm" onclick="eliminar(${i})">Eliminar</button>
-                    </td>
-                </tr>
-            `;
-        }
+    let tabla = document.getElementById("tabla");
+    tabla.innerHTML = "";
+
+    // ESTRUCTURA REPETITIVA
+    for (let contador_indices = 0; contador_indices < personas.length; contador_indices++) {
+
+        tabla.innerHTML += `
+            <tr>
+                <td>${personas[contador_indices].nombre}</td>
+                <td>${personas[contador_indices].apellido}</td>
+                <td>${personas[contador_indices].nie}</td>
+                <td>${personas[contador_indices].edad}</td>
+                <td>
+                    <button onclick="editar(${contador_indices})">Editar</button>
+                    <button onclick="eliminar(${contador_indices})">Eliminar</button>
+                </td>
+            </tr>
+        `;
     }
+}
 
-    // EDITAR
-    function editar(i) {
-        document.getElementById("nombre").value = personas[i].nombre;
-        document.getElementById("apellido").value = personas[i].apellido;
-        document.getElementById("nie").value = personas[i].nie;
-        document.getElementById("edad").value = personas[i].edad;
-        document.getElementById("indice").value = i;
+// FUNCIÓN EDITAR
+function editar(indice) {
+    botonactualizar.hidden = false;
+    botonguardar.hidden = true;
+    document.getElementById("html_nombre").value = personas[indice].nombre;
+    document.getElementById("html_apellido").value = personas[indice].apellido;
+    document.getElementById("html_nie").value = personas[indice].nie;
+    document.getElementById("html_edad").value = personas[indice].edad;
+    document.getElementById("html_indice").value = indice;
+}
+
+// FUNCIÓN ACTUALIZAR (UPDATE)
+function actualizar() {
+
+    let i = document.getElementById("html_indice").value;
+    let nombre = document.getElementById("html_nombre").value;
+    let apellido = document.getElementById("html_apellido").value;
+    let nie = document.getElementById("html_nie").value;
+    let edad = document.getElementById("html_edad").value;
+
+    if (nombre === "" || edad === "" || apellido === "" || nie === "") {
+            alert("Todos los campos son obligatorios");
+            } else if (edad < 3 || edad > 20) {
+        alert("La edad debe estar entre 3 y 20 años ");
+    } else {
+
+        personas[i].nombre = nombre;
+        personas[i].edad = edad;
+        personas[i].apellido = apellido;
+        personas[i].nie = nie;
+
+        botonactualizar.hidden = true;
+        botonguardar.hidden = false;
+
+        limpiar();
+        mostrar();
     }
+    
+}
 
-    // ACTUALIZAR
-    function actualizar() {
+// FUNCIÓN ELIMINAR (DELETE)
+function eliminar(i) {
+    let yesorno = confirm("¿Desea eliminar este registro?");
+    console.log(yesorno);
 
-        let i = document.getElementById("indice").value;
-        let nombre = document.getElementById("nombre").value;
-        let apellido = document.getElementById("apellido").value;
-        let nie = document.getElementById("nie").value;
-        let edad = document.getElementById("edad").value;
-
-        if (nombre === "" || apellido === "" || nie === "" || edad === "") {
-            alert("No se pueden dejar campos vacíos");
-        } else {
-
-            personas[i].nombre = nombre;
-            personas[i].apellido = apellido;
-            personas[i].nie = nie;
-            personas[i].edad = edad;
-            limpiar();
-            mostrar();          
-        }
+    if (yesorno) {
+        personas.splice(i, 1);
+        mostrar();
     }
+}
 
-        // ELIMINAR
-        function eliminar(i) {
+// LIMPIAR CAMPOS
+function limpiar() {
+    botonactualizar.hidden = true;
+    botonguardar.hidden = false;
 
-            if (confirm("¿Desea eliminar el registro?")) {
-                personas.splice(i, 1);
-                mostrar();
-            }
-        }
-
-    // LIMPIAR
-    function limpiar() {
-        document.getElementById("nombre").value = "";
-        document.getElementById("apellido").value = "";
-        document.getElementById("nie").value = "";
-        document.getElementById("edad").value = "";
-        document.getElementById("indice").value = "";
-    }
-
+    document.getElementById("html_nombre").value = "";
+    document.getElementById("html_apellido").value = "";
+    document.getElementById("html_nie").value = "";
+    document.getElementById("html_edad").value = "";
+    document.getElementById("html_indice").value = "";
+}

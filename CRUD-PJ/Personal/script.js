@@ -6,6 +6,15 @@ botonactualizar.hidden = true;
 // ARRAY DONDE SE GUARDAN LOS DATOS
 let personas = [];
 
+
+
+if (localStorage.getItem("personas")) {
+    personas = JSON.parse(localStorage.getItem("personas"));
+} 
+
+mostrar();
+
+
 // FUNCIÓN GUARDAR (CREATE)
 function guardar() {
     // document.body.bgColor="black";
@@ -39,6 +48,8 @@ function guardar() {
         console.log(persona);
         // SECUENCIAL
         personas.push(persona);
+
+        localStorage.setItem("personas", JSON.stringify(personas));
 
         botonactualizar.hidden = true;
 
@@ -87,7 +98,6 @@ function editar(indice) {
 
 // FUNCIÓN ACTUALIZAR (UPDATE)
 function actualizar() {
-
     let i = document.getElementById("html_indice").value;
     let nombre = document.getElementById("html_nombre").value;
     let apellido = document.getElementById("html_apellido").value;
@@ -105,6 +115,8 @@ function actualizar() {
         personas[i].apellido = apellido;
         personas[i].nie = nie;
 
+        localStorage.setItem("personas", JSON.stringify(personas));
+
         botonactualizar.hidden = true;
         botonguardar.hidden = false;
 
@@ -121,8 +133,13 @@ function eliminar(i) {
 
     if (yesorno) {
         personas.splice(i, 1);
+
+    localStorage.setItem("personas", JSON.stringify(personas));
+
         mostrar();
     }
+
+   
 }
 
 // LIMPIAR CAMPOS

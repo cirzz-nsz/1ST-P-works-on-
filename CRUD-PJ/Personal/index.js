@@ -18,7 +18,7 @@ function aceptar() {
         let usuario = usuarios[contador_users];
         if (user === usuario.user && password === usuario.password) {
             alert("Bienvenido " + usuario.user);
-            window.location.href = "crud_javascript.html";
+            window.location.href = "crud.html";
             //cambia de pestana a otra 
             encontrado = true;
             return;

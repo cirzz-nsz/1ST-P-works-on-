@@ -7,26 +7,25 @@ if (localStorage.getItem("usuarios")) {
 
 // FUNCIÓN GUARDAR (CREATE)
 function guardar() {
-    // document.body.bgColor="black";
-    
-    // document.body.style.color="white";
-
-    // const titulo = document.querySelector("h2"); // Selecciona el primer h1
-    // if (titulo) {
-    //    titulo.remove(); // Elimina el elemento del DOM
-    // }
-    
-
     let user = document.getElementById("register_user").value;
     let password = document.getElementById("register_password").value;
 
-    if (user === "" || password === "") {
-            alert("Todos los campos son obligatorios");
-            } else if (password.length < 6) {
-        alert("La contraseña debe tener al menos 6 caracteres");
-        }  else {
 
-        // OBJETO
+    if (user === "" || password === "") {
+        alert("Todos los campos son obligatorios");
+    }else if (password.length < 6) {
+        alert("La contraseña debe tener al menos 6 caracteres");
+    } else {
+        // Corrobora que el usuario no exista en el array de usuarios
+        //cuenta los usuarios y ve si ya hay uno existente y lo deja o no lo deja pasar 
+        for (let contador_users = 0; contador_users < usuarios.length; contador_users++) {
+            let usuario = usuarios[contador_users];
+            if (user === usuario.user) {
+                alert("El usuario ya existe, por favor elija otro nombre de usuario");
+                return;
+            }
+        }
+
         let usuario = {
             user: user,
             password: password
@@ -41,10 +40,8 @@ function guardar() {
 
         window.location.href = "index.html";
     }
-    // CONDICIONAL
 
 }
-
 
 function limpiar() {
     document.getElementById("register_user").value = "";

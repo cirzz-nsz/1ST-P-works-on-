@@ -1,43 +1,36 @@
 // ARRAY DONDE SE GUARDAN LOS DATOS
 let usuarios = [];
 
+
+
 // FUNCIÓN GUARDAR (CREATE)
+function aceptar() {
+    if (localStorage.getItem("usuarios")) {
+    usuarios = JSON.parse(localStorage.getItem("usuarios"));
+    } 
 
+    let user = document.getElementById("login_user").value;
+    let password = document.getElementById("login_password").value;
 
-function guardar() {
-    // document.body.bgColor="black";
-    
-    // document.body.style.color="white";
+    let encontrado = false;
 
-    // const titulo = document.querySelector("h2"); // Selecciona el primer h1
-    // if (titulo) {
-    //    titulo.remove(); // Elimina el elemento del DOM
-    // }
-    
-
-    let user = document.getElementById("register_user").value;
-    let password = document.getElementById("register_password").value;
-
-        // OBJETO
-        let usuario = {
-            user: user,
-            password: password
-        };
-        console.log(usuario);
-        // SECUENCIAL
-        usuarios.push(usuario);
-
-        localStorage.setItem("usuario", JSON.stringify(usuarios));
-
-        limpiar();
-
-    // CONDICIONAL
-
-}
-
-
-function limpiar() {
-    document.getElementById("register_user").value = "";
-    document.getElementById("register_password").value = "";
+    for (let contador_users = 0; contador_users < usuarios.length; contador_users++) {
+        let usuario = usuarios[contador_users];
+        if (user === usuario.user && password === usuario.password) {
+            alert("Bienvenido " + usuario.user);
+            window.location.href = "crud_javascript.html";
+            //cambia de pestana a otra 
+            encontrado = true;
+            return;
+            //return es para salir de la función, no se ejecuta nada después de eso
+            //es el hachazo de el mister para cortar de una y que no siga nada mas 
+        }
+    }
+    // (!) Significa que La negacion de la negacion da true
+        
+    if (encontrado == false) {
+        alert("Usuario o contraseña incorrectos");
+    }
+    // Corrobora la informacion y ve que si es velda o no y manda o repite el proceso 
 }
 

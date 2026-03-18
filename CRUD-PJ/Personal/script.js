@@ -6,8 +6,6 @@ botonactualizar.hidden = true;
 // ARRAY DONDE SE GUARDAN LOS DATOS
 let personas = [];
 
-
-
 if (localStorage.getItem("personas")) {
     personas = JSON.parse(localStorage.getItem("personas"));
 } 

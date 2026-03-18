@@ -2,6 +2,8 @@
 let usuarios = [];
 
 // FUNCIÓN GUARDAR (CREATE)
+
+
 function guardar() {
     // document.body.bgColor="black";
     
@@ -29,7 +31,6 @@ function guardar() {
 
         limpiar();
 
-        window.location.href = "index.html";
     // CONDICIONAL
 
 }

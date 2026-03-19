@@ -14,10 +14,20 @@
             font-size: 35px;
             font-family: 'Courier New', Courier, monospace;
             /* lo mismo solo que lo unico que cambia es que lo aplica a el texto o h2 que refiere a el titulo  */
+            
         }
 
         label {
             
+        }
+        div {
+            background-color: #ffffff;
+            width: 200px;
+            height: 200px;
+            padding: 100px;
+            border-radius: 12px;
+            margin: 100px auto;
+            /* background color: el color de fondo de el div, width: el ancho de el div, padding: espacio entre el contenido y el borde de el div, border-radius: redondeo de las esquinas de el div, margin: espacio entre el div y otros elementos */
         }
 
         input {
@@ -58,24 +68,24 @@
 
 
 <body>
+    <div>
+        <h2>Login</h2>
 
-    <h2>Login</h2>
+        <input type="hidden" id="password_indice">
 
-    <input type="hidden" id="password_indice">
+        <label>Usuario:</label>
+        <input type="text" id="login_user">
+        <br><br>
+        
+        <label>Contraseña:</label>
+        <input type="text" id="login_password">
+        <br><br>
 
-    <label>Usuario:</label>
-    <input type="text" id="login_user">
-    <br><br>
-    
-    <label>Contraseña:</label>
-    <input type="text" id="login_password">
-    <br><br>
-
-    <button id="login_button" onclick="aceptar()">Login</button>  
-    |
-    <a href="registro.html">Registrarse</a>
-
-
+        <button id="login_button" onclick="aceptar()">Login</button>  
+        |
+        <a href="registro.html">Registrarse</a>
+        
+    </div>
     <script src="index.js"></script>
 </body>
 </html>

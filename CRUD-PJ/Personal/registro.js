@@ -13,8 +13,8 @@ function guardar() {
 
     if (user === "" || password === "") {
         alert("Todos los campos son obligatorios");
-    }else if (password.length < 6) {
-        alert("La contraseña debe tener al menos 6 caracteres");
+    }else if (password.length < 4) {
+        alert("La contraseña debe tener al menos 4 caracteres");
     } else {
         // Corrobora que el usuario no exista en el array de usuarios
         //cuenta los usuarios y ve si ya hay uno existente y lo deja o no lo deja pasar 

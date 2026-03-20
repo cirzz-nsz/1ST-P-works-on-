@@ -15,8 +15,8 @@ for (let contador_años = 0; contador_años < personas.length; contador_años++)
     let existe = false;
 
     // verificar si ya existe esa edad
-    for (let j = 0; j < etiquetas.length; j++) {
-        if (etiquetas[j] == edad_actual + " AÑOS") {
+    for (let edad_existente = 0; edad_existente < etiquetas.length; edad_existente++) {
+        if (etiquetas[edad_existente] == edad_actual + " AÑOS") {
             existe = true;
         }
     }
@@ -26,8 +26,8 @@ for (let contador_años = 0; contador_años < personas.length; contador_años++)
         let contador = 0;
 
         // contar cuántas veces se repite esa edad
-        for (let i = 0; i < personas.length; i++) {
-            if (personas[i].edad == edad_actual) {
+        for (let contador_edades = 0; contador_edades < personas.length; contador_edades++) {
+            if (personas[contador_edades].edad == edad_actual) {
                 contador++;
             }
         }

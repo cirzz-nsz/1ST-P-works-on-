@@ -2,7 +2,10 @@
 let usuarios = [];
 
 if (localStorage.getItem("usuarios")) {
-    usuarios = JSON.parse(localStorage.getItem("usuarios"));
+    let usuariosJason = localStorage.getItem("usuarios"); // Obtiene el valor almacenado en localStorage en formato JSON string
+    console.log (usuariosJason); // Imprime el JSON string en la consola para verificar su contenido
+    usuarios = JSON.parse(usuariosJason);
+    console.log (usuarios); // Imprime el array de usuarios después de convertirlo desde JSON string
 } 
 
 // FUNCIÓN GUARDAR (CREATE)

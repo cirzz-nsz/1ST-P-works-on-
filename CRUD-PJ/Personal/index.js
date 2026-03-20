@@ -1,8 +1,6 @@
 // ARRAY DONDE SE GUARDAN LOS DATOS
 let usuarios = [];
 
-
-
 // FUNCIÓN GUARDAR (CREATE)
 function aceptar() {
     if (localStorage.getItem("usuarios")) {

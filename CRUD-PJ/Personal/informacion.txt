@@ -1,0 +1,24 @@
+elemento-  , indice - , array - , length - , Json- , localstorage- ,
+
+
+
+proyecto_estudiantes
+
+
+index.html        → Login
+
+registro.html     → Registro
+
+crud.html         → CRUD estudiantes
+
+
+login.js
+
+registro.js
+
+crud.js
+
+
+
+[{"nombre":"67824781","edad":"12","apellido":"84782447423","nie":"67232347862"},{"nombre":"1234567","edad":"15","apellido":"sdfghxc","nie":"fvdcvbn"},{"nombre":"1234r5tyh","edad":"19","apellido":"wsdcfzbdfbzf","nie":"zdfgzsfzxdvbf"},{"nombre":"23H4RUPHeporui","edad":"6","apellido":"q32874","nie":"q5283475yGEFY"},{"nombre":"28934627986","edad":"17","apellido":"q267903457q6","nie":"23r578907"}]
+

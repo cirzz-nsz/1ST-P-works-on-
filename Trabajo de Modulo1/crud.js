@@ -1,10 +1,7 @@
-let botonguardar = document.getElementById("boton_guardar");
-botonguardar.hidden = false;
-let botonactualizar = document.getElementById("boton_actualizar");
-botonactualizar.hidden = true;
+var personas = [];
 
 // ARRAY DONDE SE GUARDAN LOS DATOS
-let personas = [];
+
 
 if (localStorage.getItem("personas")) {
     personas = JSON.parse(localStorage.getItem("personas"));
@@ -30,9 +27,9 @@ function guardar() {
     let apellido = document.getElementById("html_apellido").value;
 
 
-        if (nombre === "" || edad === "" || apellido === "" || nie === "") {
-            alert("Todos los campos son obligatorios");
-            } else if (edad < 3 || edad > 20) {
+    if (nombre === "" || edad === "" || apellido === "" || nie === "") {
+        alert("Todos los campos son obligatorios");
+        } else if (edad < 3 || edad > 20) {
         alert("La edad debe estar entre 3 y 20 años ");
         }  else {
 
@@ -48,8 +45,6 @@ function guardar() {
         personas.push(persona);
 
         localStorage.setItem("personas", JSON.stringify(personas));
-
-        botonactualizar.hidden = true;
 
         limpiar();
         mostrar();
@@ -75,9 +70,9 @@ function mostrar() {
                 <td>${personas[contador_indices].nie}</td>
                 <td>${personas[contador_indices].edad}</td>
                 <td>
-                    <button onclick="editar(${contador_indices})">Editar</button>
-                    <button onclick="eliminar(${contador_indices})">Eliminar</button>
-                </td>
+                        <button class="btn btn-info btn-sm" onclick="editar(${contador_indices})">Editar</button>
+                        <button class="btn btn-danger btn-sm" onclick="eliminar(${contador_indices})">Eliminar</button>
+                    </td>
             </tr>
         `;
     }
@@ -85,8 +80,6 @@ function mostrar() {
 
 // FUNCIÓN EDITAR
 function editar(indice) {
-    botonactualizar.hidden = false;
-    botonguardar.hidden = true;
     document.getElementById("html_nombre").value = personas[indice].nombre;
     document.getElementById("html_apellido").value = personas[indice].apellido;
     document.getElementById("html_nie").value = personas[indice].nie;
@@ -115,9 +108,6 @@ function actualizar() {
 
         localStorage.setItem("personas", JSON.stringify(personas));
 
-        botonactualizar.hidden = true;
-        botonguardar.hidden = false;
-
         limpiar();
         mostrar();
     }
@@ -142,12 +132,33 @@ function eliminar(i) {
 
 // LIMPIAR CAMPOS
 function limpiar() {
-    botonactualizar.hidden = true;
-    botonguardar.hidden = false;
+
 
     document.getElementById("html_nombre").value = "";
     document.getElementById("html_apellido").value = "";
     document.getElementById("html_nie").value = "";
     document.getElementById("html_edad").value = "";
     document.getElementById("html_indice").value = "";
+}
+
+function generarReporte() {
+    if (personas.length === 0) {
+        alert("No hay estudiantes para generar el reporte");
+        return;
+    }
+
+    let csvContent = "data:text/csv;charset=utf-8,";
+    csvContent += "Nombre,Apellido,NIE,Edad\n";
+
+    personas.forEach(est => {
+        csvContent += `${est.nombre},${est.apellido},${est.nie},${est.edad}\n`;
+    });
+
+    const encodeUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodeUri);
+    link.setAttribute("download", "reporte_estudiantes.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }

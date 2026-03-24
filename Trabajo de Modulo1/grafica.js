@@ -1,9 +1,5 @@
 let personas = [];
 
-
-console.log("grafica cargada");
-console.log(typeof personas);
-
 /*
 let etiquetas = [];
 let contar_edades = [];*/

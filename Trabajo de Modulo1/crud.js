@@ -1,4 +1,4 @@
-var personas = [];
+let personas = [];
 
 // ARRAY DONDE SE GUARDAN LOS DATOS
 

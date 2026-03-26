@@ -3,7 +3,7 @@ let personas = [];
 let botonguardar = document.getElementById("boton_guardar");
 botonguardar.hidden = false;
 let botonactualizar = document.getElementById("boton_actualizar");
-botonactualizar.hidden = true;
+botonactualizar.hidden = true;  
 
 
 // ARRAY DONDE SE GUARDAN LOS DATOS

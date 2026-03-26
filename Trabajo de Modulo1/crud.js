@@ -156,24 +156,3 @@ function limpiar() {
     document.getElementById("html_indice").value = "";
 }
 
-function generarReporte() {
-    if (personas.length === 0) {
-        alert("No hay estudiantes para generar el reporte");
-        return;
-    }
-
-    let csvContent = "data:text/csv;charset=utf-8,";
-    csvContent += "Nombre,Apellido,NIE,Edad\n";
-
-    personas.forEach(est => {
-        csvContent += `${est.nombre},${est.apellido},${est.nie},${est.edad}\n`;
-    });
-
-    const encodeUri = encodeURI(csvContent);
-    const link = document.createElement("a");
-    link.setAttribute("href", encodeUri);
-    link.setAttribute("download", "reporte_estudiantes.csv");
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-}

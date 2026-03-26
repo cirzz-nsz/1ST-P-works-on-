@@ -5,27 +5,13 @@ botonguardar.hidden = false;
 let botonactualizar = document.getElementById("boton_actualizar");
 botonactualizar.hidden = true;  
 
-
-// ARRAY DONDE SE GUARDAN LOS DATOS
-
-
 if (localStorage.getItem("personas")) {
     personas = JSON.parse(localStorage.getItem("personas"));
 } 
 
 mostrar();
 
-
-// FUNCIÓN GUARDAR (CREATE)
 function guardar() {
-    // document.body.bgColor="black";
-    
-    // document.body.style.color="white";
-
-    // const titulo = document.querySelector("h2"); // Selecciona el primer h1
-    // if (titulo) {
-    //    titulo.remove(); // Elimina el elemento del DOM
-    // }
     
     let nombre = document.getElementById("html_nombre").value;
     let nie = document.getElementById("html_nie").value;
@@ -39,7 +25,6 @@ function guardar() {
         alert("La edad debe estar entre 3 y 20 años ");
         }  else {
 
-        // OBJETO
         let persona = {
             nombre: nombre,
             edad: edad,
@@ -47,7 +32,7 @@ function guardar() {
             nie: nie
         };
         console.log(persona);
-        // SECUENCIAL
+
         personas.push(persona);
 
         localStorage.setItem("personas", JSON.stringify(personas));
@@ -58,17 +43,13 @@ function guardar() {
         mostrar();
     }
 
-    // CONDICIONAL
-
 }
 
-// FUNCIÓN MOSTRAR (READ)
 function mostrar() {
 
     let tabla = document.getElementById("tabla");
     tabla.innerHTML = "";
 
-    // ESTRUCTURA REPETITIVA
     for (let contador_indices = 0; contador_indices < personas.length; contador_indices++) {
 
         tabla.innerHTML += `
@@ -86,7 +67,6 @@ function mostrar() {
     }
 }
 
-// FUNCIÓN EDITAR
 function editar(indice) {
     botonactualizar.hidden = false;
     botonguardar.hidden = true;
@@ -97,7 +77,6 @@ function editar(indice) {
     document.getElementById("html_indice").value = indice;
 }
 
-// FUNCIÓN ACTUALIZAR (UPDATE)
 function actualizar() {
     let i = document.getElementById("html_indice").value;
     let nombre = document.getElementById("html_nombre").value;
@@ -127,7 +106,6 @@ function actualizar() {
     
 }
 
-// FUNCIÓN ELIMINAR (DELETE)
 function eliminar(i) {
     let yesorno = confirm("¿Desea eliminar este registro?");
     console.log(yesorno);
@@ -143,7 +121,6 @@ function eliminar(i) {
    
 }
 
-// LIMPIAR CAMPOS
 function limpiar() {
     botonactualizar.hidden = true;
     botonguardar.hidden = false;

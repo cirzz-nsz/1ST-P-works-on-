@@ -1,14 +1,12 @@
-// ARRAY DONDE SE GUARDAN LOS DATOS
 let usuarios = [];
 
 if (localStorage.getItem("usuarios")) {
-    let usuariosJason = localStorage.getItem("usuarios"); // Obtiene el valor almacenado en localStorage en formato JSON string
-    console.log (usuariosJason); // Imprime el JSON string en la consola para verificar su contenido
+    let usuariosJason = localStorage.getItem("usuarios"); 
+    console.log (usuariosJason); 
     usuarios = JSON.parse(usuariosJason);
-    console.log (usuarios); // Imprime el array de usuarios después de convertirlo desde JSON string
+    console.log (usuarios); 
 } 
 
-// FUNCIÓN GUARDAR (CREATE)
 function guardar() {
     let user = document.getElementById("register_user").value;
     let password = document.getElementById("register_password").value;
@@ -19,8 +17,7 @@ function guardar() {
     }else if (password.length < 4) {
         alert("La contraseña debe tener al menos 4 caracteres");
     } else {
-        // Corrobora que el usuario no exista en el array de usuarios
-        //cuenta los usuarios y ve si ya hay uno existente y lo deja o no lo deja pasar 
+
         for (let contador_users = 0; contador_users < usuarios.length; contador_users++) {
             let usuario = usuarios[contador_users];
             if (user === usuario.user) {
@@ -34,7 +31,7 @@ function guardar() {
             password: password
         };
         console.log(usuario);
-        // SECUENCIAL
+        
         usuarios.push(usuario);
 
         localStorage.setItem("usuarios", JSON.stringify(usuarios));

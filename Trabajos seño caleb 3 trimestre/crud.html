@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crud Usuarios</title>
+    <link rel="stylesheet" href="estilo.css">
+    <script src="funcionabilidad.js"></script>
+</head>
+<body>
+    <div class="container"> 
+        <h1>Crud Usuarios - HTML + css + JS </h1>
+        <div class="form-box">
+            <h3 id="formTitle">Agregar Usuario</h3>
+            <input type="text" id="nombre " placeholder="nombre">
+            <input type="email" id="email " placeholder="Email">
+            <button class="btn btn-add" onclick="guardar()">Guardar</button>
+        </div>
+        <div class="table-box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tablausuarios"></tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -68,10 +68,10 @@ function mostrar() {
 function editar(indice) {
     botonactualizar.hidden = false;
     botonguardar.hidden = true;
-    document.getElementById("html_genero").value = personas[indice].nombre;
-    document.getElementById("html_nombre").value = personas[indice].apellido;
-    document.getElementById("html_autor").value = personas[indice].nie;
-    document.getElementById("html_fecha").value = personas[indice].edad;
+    document.getElementById("html_genero").value = libros[indice].genero;
+    document.getElementById("html_nombre").value = libros[indice].nombre;
+    document.getElementById("html_autor").value = libros[indice].autor;
+    document.getElementById("html_fecha").value = libros[indice].fecha;
     document.getElementById("html_indice1").value = indice;
 }
 
